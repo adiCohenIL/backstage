@@ -1,6 +1,14 @@
 app:
   title: Dr Seuss Backstage App
   baseUrl: http://localhost:3000
+  extensions:
+    - extension:
+        module: "entity-card:announcements/announcements"
+      config:
+        filter: kind:component,system,group,api
+    - extension:
+        module: "nav-item:announcements"
+
 
 organization:
   name: Dr Seuss

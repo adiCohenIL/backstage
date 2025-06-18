@@ -131,6 +131,7 @@ const routes = (
     </Route>
     <Route path="/settings" element={<UserSettingsPage />} />
     <Route path="/catalog-graph" element={<CatalogGraphPage />} />
+    <Route path="/announcements" element={<AnnouncementsPage />} />
   </FlatRoutes>
 );
 
