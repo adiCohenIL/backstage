@@ -1,0 +1,72 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: Domain
+metadata:
+  name: seuss-food
+  description: Food from green eegs and ham
+spec:
+  owner: sam-team
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: green-eegs-portal
+spec:
+  owner: sam-team
+  domain: seuss-food
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: order-service
+spec:
+  type: service
+  lifecycle: production
+  owner: sam-team
+  system: green-eegs-portal
+  dependsOn: 
+    - api:orders-api
+    - resource:orders-db
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: menu-fe
+spec:
+  type: website
+  lifecycle: production
+  owner: dr-seuss-team
+  system: green-eegs-portal
+  dependsOn: 
+    - api:orders-api
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: orders-db
+spec:
+  type: database
+  owner: sam-team
+  system : green-eegs-portal
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: order-api
+spec:
+  type: openapi
+  lifecycle: production
+  owner: sam-team
+  system : green-eegs-portal
+  definition: |
+    openapi: 3.0.0
+    info:
+      title: Orders API
+      version: 1.0.0
+    paths:
+      /orders:
+        get:
+          summary: Get all orders
+          responses:
+            '200':
+              description: A list of orders

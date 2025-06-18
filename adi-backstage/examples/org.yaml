@@ -7,6 +7,15 @@ metadata:
 spec:
   memberOf: [guests]
 ---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  name: adiCohenIL
+  namespace: default
+spec:
+  memberOf: [guests]
+  email: adi.cohen@gmail.com
+---
 # https://backstage.io/docs/features/software-catalog/descriptor-format#kind-group
 apiVersion: backstage.io/v1alpha1
 kind: Group
@@ -15,3 +24,33 @@ metadata:
 spec:
   type: team
   children: []
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: dr-seuss-team
+spec:
+  type: team
+  children: []
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  name: thing-1
+spec:
+  memberOf: [dr-seuss-team]
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: sam-team
+spec:
+  type: team
+  children: []
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  name: sam-i-am
+spec:
+  memberOf: [sam-team]

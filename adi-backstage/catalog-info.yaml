@@ -9,5 +9,13 @@ metadata:
   #   backstage.io/techdocs-ref: dir:.
 spec:
   type: website
-  owner: john@example.com
+  owner: adi.cohen@capgemini.com
   lifecycle: experimental
+---
+apiVersion: backstage.io/v1alpha1
+kind: Location
+metadata:
+  name: org-users
+spec:
+  type: file
+  target: /app/examples/org.yaml
