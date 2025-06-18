@@ -2,6 +2,8 @@ import { Navigate, Route } from 'react-router-dom';
 import { apiDocsPlugin, ApiExplorerPage } from '@backstage/plugin-api-docs';
 
 import { Box, Typography } from '@material-ui/core';
+import { AnnouncementsPage } from '@backstage-community/plugin-announcements';
+
 
 import {
   CatalogEntityPage,
