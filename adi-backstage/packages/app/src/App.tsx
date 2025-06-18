@@ -1,5 +1,8 @@
 import { Navigate, Route } from 'react-router-dom';
 import { apiDocsPlugin, ApiExplorerPage } from '@backstage/plugin-api-docs';
+
+import { Box, Typography } from '@material-ui/core';
+
 import {
   CatalogEntityPage,
   CatalogIndexPage,
@@ -31,6 +34,13 @@ import {
   SignInPage,
 } from '@backstage/core-components';
 import { createApp } from '@backstage/app-defaults';
+
+import { ThemeProvider } from '@material-ui/core/styles';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import LightIcon from '@material-ui/icons/WbSunny';
+import { UnifiedThemeProvider} from '@backstage/theme';
+import { DrSeussTheme } from './themes/DrSeussTheme';
+
 import { AppRouter, FlatRoutes } from '@backstage/core-app-api';
 import { CatalogGraphPage } from '@backstage/plugin-catalog-graph';
 import { RequirePermission } from '@backstage/plugin-permission-react';
@@ -70,7 +80,22 @@ const app = createApp({
     />
   ),
   },
+  themes: [{
+    id: 'DrSeuss-theme',
+    title: 'DrSeuss Theme',
+    variant: 'light',
+    icon: <LightIcon />,
+    Provider: ({ children }) => (
+      <UnifiedThemeProvider theme={DrSeussTheme} children={children} />
+    ),
+  }]
 });
+
+const Footer = () => (
+  <Box component="footer" p={2} textAlign="center" bgcolor="#f5f5f5">
+     <Typography variant="body2">Powered by Capgemini NL © 2025 </Typography>
+  </Box>
+);
 
 const routes = (
   <FlatRoutes>
@@ -116,5 +141,6 @@ export default app.createRoot(
     <AppRouter>
       <Root>{routes}</Root>
     </AppRouter>
+    <Footer />
   </>,
 );
