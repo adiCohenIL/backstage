@@ -4,7 +4,10 @@ import HomeIcon from '@material-ui/icons/Home';
 import ExtensionIcon from '@material-ui/icons/Extension';
 import LibraryBooks from '@material-ui/icons/LibraryBooks';
 import CreateComponentIcon from '@material-ui/icons/AddCircleOutline';
-import { AnnouncementsCard } from '@backstage/plugin-announcements';
+//import { AnnouncementsCard } from '@backstage/plugin-announcements';
+
+import AnnouncementIcon from '@mui/icons-material/Announcement';
+
 
 import LogoFull from './LogoFull';
 import LogoIcon from './LogoIcon';
@@ -77,6 +80,8 @@ export const Root = ({ children }: PropsWithChildren<{}>) => (
         <SidebarItem icon={ExtensionIcon} to="api-docs" text="APIs" />
         <SidebarItem icon={LibraryBooks} to="docs" text="Docs" />
         <SidebarItem icon={CreateComponentIcon} to="create" text="Create..." />
+        <SidebarItem icon={AnnouncementIcon} to="/announcements" text="Announcements" />
+
         {/* End global nav */}
         <SidebarDivider />
         <SidebarScrollWrapper>

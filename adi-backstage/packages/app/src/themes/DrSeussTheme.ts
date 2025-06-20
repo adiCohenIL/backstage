@@ -13,16 +13,6 @@ export const DrSeussTheme = createUnifiedTheme({
       secondary:  { main: '#ED2011' }, // Red
       background: { default: '#FFFFFF' },
     },
-    navigation: {
-      background: '#0071AD',
-      indicator: '#FFFFFF',
-      selectedColor: '#FFFFFF',
-      color: '#15C0F7',
-    },
-    navItem: {
-      hoverBackground: '#00507A',
-    },
-
   }),
   
   fontFamily: 'Comic Sans MS',
@@ -33,6 +23,9 @@ export const DrSeussTheme = createUnifiedTheme({
     home: {
       backgroundImage: 'repeating-linear-gradient(10deg, #ED2011, #ED2011 23px, #FFFFFF 23px, #FFFFFF 46px)',
       shape: 'wave',
+      colors: ['#ED2011', '#FFFFFF'],
+      fontColor: '#000000',
+
     }
   }
 });

@@ -37,8 +37,8 @@ import {
 } from '@backstage/core-components';
 import { createApp } from '@backstage/app-defaults';
 
-import { ThemeProvider } from '@material-ui/core/styles';
-import CssBaseline from '@material-ui/core/CssBaseline';
+//import { ThemeProvider } from '@material-ui/core/styles';
+//import CssBaseline from '@material-ui/core/CssBaseline';
 import LightIcon from '@material-ui/icons/WbSunny';
 import { UnifiedThemeProvider} from '@backstage/theme';
 import { DrSeussTheme } from './themes/DrSeussTheme';
