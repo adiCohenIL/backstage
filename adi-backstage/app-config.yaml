@@ -129,6 +129,20 @@ catalog:
   useUrlReadersSearch: true
 
 kubernetes:
+  frontend:
+    podDelete:
+      enabled: true
+  serviceLocatorMethod:
+    type: 'multiTenant'
+  clusterLocatorMethods:
+    - type: 'config'
+      clusters:
+        - name: rancher-cluster
+          url: ${K8S_RANCHER_URL}
+          authProvider: 'serviceAccount'
+          serviceAccountToken: ${K8S_RANCHER_TOKEN}
+          skipTLSVerify: true
+          skipMetricsLookup: true
   # see https://backstage.io/docs/features/kubernetes/configuration for kubernetes configuration options
 
 # see https://backstage.io/docs/permissions/getting-started for more on the permission framework

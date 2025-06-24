@@ -70,3 +70,15 @@ spec:
           responses:
             '200':
               description: A list of orders
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: hello-world
+  description: A simple Python HTTP server
+  annotations:
+    backstage.io/kubernetes-id: hw-app
+spec:
+  type: service
+  owner: dr-seuss-team
+  lifecycle: production

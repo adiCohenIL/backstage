@@ -58,6 +58,8 @@ import {
   isKubernetesAvailable,
 } from '@backstage/plugin-kubernetes';
 
+//import { EntityKubernetesContent } from '@backstage/plugin-kubernetes';
+
 const techdocsContent = (
   <EntityTechdocsContent>
     <TechDocsAddons>
@@ -158,7 +160,7 @@ const serviceEntityPage = (
       title="Kubernetes"
       if={isKubernetesAvailable}
     >
-      <EntityKubernetesContent />
+      <EntityKubernetesContent refreshIntervalMs={30000} />
     </EntityLayout.Route>
 
     <EntityLayout.Route path="/api" title="API">

@@ -1,0 +1,54 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-world
+  labels:
+    backstage.io/kubernetes-id: hw-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-world
+  template:
+    metadata:
+      labels:
+        app: hello-world
+        backstage.io/kubernetes-id: hw-app
+    spec:
+      containers:
+        - name: hello
+          image: python:3.11-slim
+          command: ["python", "-m", "http.server", "9090"]
+          workingDir: /app
+          volumeMounts:
+            - name: html
+              mountPath: /app
+      volumes:
+        - name: html
+          configMap:
+            name: hello-html
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: hello-world
+  labels:
+    backstage.io/kubernetes-id: hw-app
+data:
+  index.html: "Hello, World!"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-world
+  labels:
+    backstage.io/kubernetes-id: hw-app
+spec:
+  selector:
+    app: hello-world
+  ports:
+    - protocol: TCP
+      port: 9090
+      targetPort: 9090
+  type: ClusterIP
